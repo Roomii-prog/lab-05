@@ -95,16 +95,16 @@ public class MainActivity extends AppCompatActivity implements CityDialogFragmen
     @Override
     public void updateCity(City city, String name, String province) {
         // Delete old document and add updated one
-        citiesRef.document(city.getCityName()).delete();
+        citiesRef.document(city.getName()).delete();
 
         city.setName(name);
         city.setProvince(province);
 
         HashMap<String, String> data = new HashMap<>();
-        data.put("city", city.getCityName());
+        data.put("city", city.getName());
         data.put("province", city.getProvince());
 
-        citiesRef.document(city.getCityName())
+        citiesRef.document(city.getName())
                 .set(data)
                 .addOnSuccessListener(aVoid ->
                         Log.d("Firestore", "City updated successfully!"))
@@ -115,10 +115,10 @@ public class MainActivity extends AppCompatActivity implements CityDialogFragmen
     @Override
     public void addCity(City city) {
         HashMap<String, String> data = new HashMap<>();
-        data.put("city", city.getCityName());
+        data.put("city", city.getName());
         data.put("province", city.getProvince());
 
-        citiesRef.document(city.getCityName())
+        citiesRef.document(city.getName())
                 .set(data)
                 .addOnSuccessListener(aVoid ->
                         Log.d("Firestore", "DocumentSnapshot successfully written!"))
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements CityDialogFragmen
     }
 
     public void deleteCity(City city) {
-        citiesRef.document(city.getCityName())
+        citiesRef.document(city.getName())
                 .delete()
                 .addOnSuccessListener(aVoid ->
                         Log.d("Firestore", "City successfully deleted!"))
