@@ -50,4 +50,6 @@ dependencies {
     implementation("com.google.firebase:firebase-firestore")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.0.1")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.0.1")
+
+    //implementation(files("D:\\AndroidSDK\\platforms\\android-35\\android.jar"))
 }
